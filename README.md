@@ -50,12 +50,12 @@ Our EEG distrubution over the brain after a tactile stimulus.
 ### Checkups
 
   
-We checked Responses:
+We checked Responses (good):
   
 ![Responses](/Results/ResponseProb.png)
 
   
-As well as Kinarm forces:
+As well as Kinarm forces for active (good) and passive movements (also good):
 
 ![Forces](/Results/KinarmForces.png)
 
