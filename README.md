@@ -56,7 +56,7 @@ Example of an EEG recording (Andrii Cherninskyi licensed under CC BY-SA 4.0).
   
   We used unsupervised machine learning to detect and clean up anomalies in our EEG recordings.
   
-![EEGrecording](/Methods/EEG_Example.png)
+![EEGrecording](/Methods/Unsupervised.png)
   
   
 
