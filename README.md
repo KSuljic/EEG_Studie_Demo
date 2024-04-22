@@ -54,7 +54,7 @@ Figure (CC BY-NC-SA) showing the distances used in our experiment.
   
 Example of an EEG recording (Andrii Cherninskyi licensed under CC BY-SA 4.0).  
   
-  We used unsupervised machine learning to detect and clean up anomalies in our EEG recordings.
+  We used unsupervised machine learning to detect and clean up anomalies in our EEG recordings (example only).
   
 ![EEGrecording](/Methods/Unsupervised.png)
   
@@ -62,14 +62,16 @@ Example of an EEG recording (Andrii Cherninskyi licensed under CC BY-SA 4.0).
 
 ## Results
   
-### Our EEG recording  
+### Checkups
 
-Our EEG distrubution over the brain after a tactile stimulus.
+
+### Tactile stimulation 
+
+EEG distrubution over the brain after a tactile stimulus (good).
   
 ![Stimulus](/Results/TactileBeta.png)
 
 
-### Checkups
 
   
 We checked Responses (good):
