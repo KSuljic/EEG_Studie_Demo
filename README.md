@@ -93,6 +93,8 @@ We noticed an interference signal in the data due to the motions. We excluded it
   After the extraction via the model there is no drift anymore and the lines are comparable!
 
 
+![beforevsafter](/Results/DeconvReconstruction.png)
+
 ### EEG over the Scalp
 
 This is an example for the signals over the scalp. We grouped the EEG electrodes into 7 groups.
