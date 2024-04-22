@@ -118,6 +118,138 @@ Here an example:
 
 ![Permutation](/Results/C_Parietal.png)
 
+  
+
+  Example code for this figure:
+
+  ´´´ python
+    
+    ymin, ymax = -2.8, 3.4
+    palette = ['#1b1f22', '#970c0f', '#767a7f', '#f52b14']
+
+    stim = 'single'
+    con = 'passive'
+
+    mov = 'moving_yes'
+
+
+    if con == 'stationary':
+        
+        epochs_statio = {k: v for k, v in epochs.items() if (stim in k) & (con in k)}
+        
+        new_dict = {}
+        
+        for key, value in epochs_statio.items():
+            # Split the key into components.
+            components = key.split("/")
+
+            # Remove the 'moving_no' or 'moving_yes' component.
+            components.remove(components[3])
+
+            # Join the remaining components back into a key string.
+            new_key = "/".join(components)
+
+            # If the new key is already in the new dictionary, append the value to the list of values.
+            # Otherwise, start a new list of values.
+            if new_key in new_dict:
+                new_dict[new_key].append(value)
+                new_dict[new_key] = mne.combine_evoked(new_dict[new_key], weights='nave')
+            else:
+                new_dict[new_key] = [value]
+                
+            epochs_sub = new_dict
+        
+        # for key, value in new_dict.items():
+        #     epochs_sub = {}
+        #     epochs_sub[key] = mne.combine_evoked(new_dict[key], weights='nave')
+            
+    else:
+        epochs_sub = {k: v for k, v in epochs.items() if (stim in k) & (mov in k) & (con in k)}
+
+
+    # contra
+    picks = ['C5', 'C3', 'CP5', 'CP3']
+
+    # ipsi
+    # picks = ['C6', 'C4', 'CP6', 'CP4']
+    # palette = ['#767a7f', '#1b1f22', '#970c0f', '#f52b14']
+
+
+
+    fig = mne.viz.plot_compare_evokeds(epochs_sub,
+                                picks=picks,
+                                combine='mean',
+                                colors={'attention_yes':'red', 'attention_no':'grey'},
+                                linestyles={'stim_close':'solid', 'stim_far':'dotted'},
+                                ylim=dict(eeg=(ymin, ymax)),
+                                invert_y=True,
+                                truncate_yaxis=False,
+                                split_legend=False,
+                                show_sensors='lower left',
+                                time_unit='ms')
+
+    fig[0].set_size_inches(10, 6)  # set new figure size
+
+    fig[0].suptitle('Passive - Moving')
+    # fig[0].tight_layout()
+
+    axes = fig[0].axes
+
+    axes[0].yaxis.grid(True)
+    axes[0].yaxis.set_ticks(np.arange(ymin, ymax, 0.2), minor=True);
+    axes[0].set_ylabel('Amplitude [μV]')
+
+    axes[0].xaxis.set_ticks(np.arange(0, 350, 10), minor=True)
+    axes[0].xaxis.set_ticks(np.arange(-100, 350, 50), minor=False)
+    axes[0].set_xlabel('Time [ms]')
+
+    for spine in axes[0].spines.values():
+        spine.set_visible(True)
+
+    axes[0].hlines(y=ymin,
+            xmin=-100,
+            xmax=350,
+            colors='k')
+
+    axes[0].vlines(x=0,
+                ymin=ymin,
+                ymax=ymax,
+            colors='k')
+
+    picks_str = ', '.join(picks)
+    axes[0].set_title(picks_str)
+
+
+
+    a = axes[0]
+    lines = a.get_lines()
+    legend = a.get_legend()
+    # legend.set_title()
+
+    for i, (line, legend_text) in enumerate(zip(lines, legend.get_texts())):
+        line.set_color(palette[i])  # Change line color
+        line.set_linewidth(2)
+        
+        # legend_text.set_text(hue_order[i])  # Change legend label
+        # Create a new legend
+        a.legend(lines, labels, loc='best')
+        
+    # Reorder the lines and labels
+    lines = [lines[i] for i in order]
+    # labels = [labels[i] for i in order]
+
+        # legend_text.set_text(hue_order[i])  # Change legend label
+    # Create a new legend
+    a.legend(lines, labels, loc='best', title=hue)
+
+
+    plt.savefig(path+'\\Plots\\Paper\\before and after unfold\\'+'Before_'+'-'.join(picks)+con+'_'+mov+'.svg', dpi=600, format='svg')
+    plt.savefig(path+'\\Plots\\Paper\\before and after unfold\\'+'Before_'+'-'.join(picks)+con+'_'+mov+'.png', dpi=600, format='png')
+
+  
+  ´´´
+
+
 
 ### Active vs Passive
 
