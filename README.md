@@ -90,6 +90,8 @@ We noticed an interference signal in the data due to the motions. We excluded it
   
   This way different events (button press, movements, experimental stimulation, etc.) can be isolated.
 
+  Figure reproduced from Dimigen & Ehinger (2021) under the CC BY-NC-ND 4.0 licence.
+
 ![Model](/Methods/LinearDeconvolution.png)
 
   
@@ -234,3 +236,9 @@ Here we see a schema of a part of the results: During active movements we see di
 This means the brain tracks the distances between the hands only for active movements!
 
 ![Schema](/Results/SchemaDistance.png)
+
+
+# References
+
+Dimigen, O., & Ehinger, B. V. (2021). Regression-based analysis of combined EEG and eye-tracking data: Theory and applications. Journal of vision, 21(1), 3-3.
+Wood, M. D., Khan, J., Lee, K. F., Maslove, D. M., Muscedere, J., Hunt, M., ... & Boyd, J. G. (2019). Assessing the relationship between near-infrared spectroscopy-derived regional cerebral oxygenation and neurological dysfunction in critically ill adults: a prospective observational multicentre protocol, on behalf of the Canadian critical care trials group. BMJ open, 9(6), e029189.
