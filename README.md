@@ -11,7 +11,10 @@ All visible in the EEG (pretty cool, right?).
   
 We asked: is this also true for passively moved hands? Bonus: is this also true for continuously attended hands?  
   
-TLDR; yes. We see differences between actively and passively moved hands. Also, suprisingly, coninously attended hands also show distance effects.  
+  This was not done before, because EEG + movements is a very difficult thing to do. Normally, participants have to remain very still. We solved it via computational modelling.
+
+
+**TLDR**; yes. We see differences between actively and passively moved hands in the EEG. Also, suprisingly, continously attended hands also show distance effects.  
  
 
 
@@ -37,9 +40,62 @@ Example of an EEG recording from Frohlich et al (2016) under the CC BY-SA 4.0 li
 
 ## Results
   
+### Our EEG recording  
 
 Our EEG distrubution over the brain after a tactile stimulus.
   
 ![Stimulus](/Results/TactileBeta.png)
 
 
+### Checkups
+
+  
+We checked Responses:
+  
+![Responses](/Results/ResponseProb.png)
+
+  
+As well as Kinarm forces:
+
+![Forces](/Results/KinarmForces.png)
+
+  
+### Interference Signal
+  
+We noticed an interference signal in the data due to the motions. We excluded it via a linear deconvolution model:
+  
+  This way different events (button press, movements, experimental stimulation, etc.) can be isolated.
+
+![Model](/Methods/LinearDeconvolution.png)
+
+  
+  One before (left) vs after (right) example. On the left picture there is a noticable "drift" in the solid lines (EEG traces).  
+  After the extraction via the model there is no drift anymore and the lines are comparable!
+
+
+### EEG over the Scalp
+
+This is an example for the signals over the scalp. We grouped the EEG electrodes into 7 groups.
+
+![ActiveEEG](/Results/ActiveMoving.png)
+  
+  
+We also used control stimuli. They should show no systematic signal, which is the case:
+
+![ActiveEmpty](/Results/ActiveEmpty.png)
+
+
+### Hypthesis testing
+
+We tested some hypotheses by cluster permutation testing: the EEG traces were compared to check for significant differences.
+Here an example:  
+
+![Permutation](/Results/C_Parietal.png)
+
+
+### Active vs Passive
+
+Here we see a schema of a part of the results: During active movements we see differences in near vs far stimulation (red diamonts), but not in the passive condition.  
+This means the brain tracks the distances between the hands only for active movements!
+
+![Schema](/Results/SchemaDistance.png)
