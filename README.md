@@ -240,5 +240,6 @@ This means the brain tracks the distances between the hands only for active move
 
 # References
 
-Dimigen, O., & Ehinger, B. V. (2021). Regression-based analysis of combined EEG and eye-tracking data: Theory and applications. Journal of vision, 21(1), 3-3.
+Dimigen, O., & Ehinger, B. V. (2021). Regression-based analysis of combined EEG and eye-tracking data: Theory and applications. Journal of vision, 21(1), 3-3.  
+  
 Wood, M. D., Khan, J., Lee, K. F., Maslove, D. M., Muscedere, J., Hunt, M., ... & Boyd, J. G. (2019). Assessing the relationship between near-infrared spectroscopy-derived regional cerebral oxygenation and neurological dysfunction in critically ill adults: a prospective observational multicentre protocol, on behalf of the Canadian critical care trials group. BMJ open, 9(6), e029189.
