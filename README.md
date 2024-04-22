@@ -7,29 +7,41 @@ Date: 22.04.2024
 Under supervision of: Prof. Tobias Heed  
 
 
-## Intro 
 
-Lets say you are being touched - a buttefly lands on your hand. You may not notice, but actually your brain processes this touch differently, if you attend the touch or not.  
+## EEG Analysis and Tactile Spatial Attention
+
+Imagine a butterfly landing gently on your hand—this simple touch triggers complex processes in your brain, which vary depending on your attention level. This is the research area on tactile attention.
+  
 
   <img src="/Methods/butterfly.jpg" alt="butterfly" height="500">
 
-This is visible in electroencephalograms or also known as EEGs. 
-   
-Even more: a) your brain processes touch differently, if your hands are near or far away from each other and also b) if they are moving during the touch or not.  
-  
-All visible in the EEG (pretty cool, right?).  
-  
-  
-We asked: 
-- Is this also true for passively moved hands? 
-- Bonus: is this also true for continuously attended hands?  
-  
 
-This was not done before, because EEG + movements is a very difficult thing to do. Normally, participants have to remain very still. We solved it via computational modelling.
-  
-  
-**TLDR**; yes. We see differences between actively and passively moved hands in the EEG. Also, suprisingly, continously attended hands also show distance effects.  
- 
+
+Using electroencephalograms (EEGs), we observe how various factors influence the brain's response to touch:
+
+- **Proximity of Hands**: Examines changes in brain processing when hands are close together versus far apart, a phenomenon known as tactile spatial attention.
+- **Movement During Touch**: Analyzes differences in brain activity when hands are stationary versus moving.
+
+#### Exploring Uncharted Territory in Tactile Spatial Attention
+
+We delve into new aspects of tactile spatial attention by exploring:
+
+- **Spatial Distribution of Tactile Attention**: Is tactile spatial attention coded gradually?
+- **Continuous Attention**: What happens when hands are continuously attended during movement?
+- **Passive Movement**: How does the brain respond when the touched hand is moved by external forces?
+
+These questions are essential because integrating EEG with movement poses significant challenges; typically, EEG requires the subject to remain still. We've addressed these challenges through computational modeling.
+
+#### Key Findings
+
+**TL;DR**: Our research reveals distinct brain activity patterns for actively versus passively moved hands. For actively moved hands, we observed:
+- **Proximity Effects**: Continuously attended hands also exhibit proximity effects, suggesting that:
+  - There are either parallel distance effects alongside attentional effects, or
+  - There is an attentional gradient that is enhanced when hands are closer together.
+
+Interestingly, no distance effects were found in passive conditions, indicating that the brain either:
+- Does not track the distance, or
+- Does not enhance tactile attention during passive movements.
 
 
 
