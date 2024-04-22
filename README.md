@@ -122,7 +122,7 @@ Here an example:
 
   Example code for this figure:
 
-  ´´´ python
+  ```python
     
     ymin, ymax = -2.8, 3.4
     palette = ['#1b1f22', '#970c0f', '#767a7f', '#f52b14']
@@ -247,7 +247,7 @@ Here an example:
     plt.savefig(path+'\\Plots\\Paper\\before and after unfold\\'+'Before_'+'-'.join(picks)+con+'_'+mov+'.png', dpi=600, format='png')
 
   
-  ´´´
+  ```
 
 
 
