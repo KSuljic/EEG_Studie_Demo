@@ -52,7 +52,9 @@ Figure (CC BY-NC-SA) showing the distances used in our experiment.
 
 ### EEG Recording Examples
   
-Example of an EEG recording from Frohlich et al (2016) under the CC BY-SA 4.0 licence.
+Example of an EEG recording (Andrii Cherninskyi licensed under CC BY-SA 4.0).  
+  
+  We used unsupervised machine learning to detect and clean up anomalies in our EEG recordings.
   
 ![EEGrecording](/Methods/EEG_Example.png)
   
