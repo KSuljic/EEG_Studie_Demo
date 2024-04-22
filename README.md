@@ -97,26 +97,9 @@ We noticed an interference signal in the data due to the motions. We excluded it
   After the extraction via the model there is no drift anymore and the lines are comparable!
 
 
-![beforevsafter](/Results/DeconvReconstruction.png)
-
-### EEG over the Scalp
-
-This is an example for the signals over the scalp. We grouped the EEG electrodes into 7 groups.
-
-![ActiveEEG](/Results/ActiveMoving.png)
+![beforevsafter](/Results/DeconvReconstruction.png)  
   
-  
-We also used control stimuli. They should show no systematic signal, which is the case:
 
-![ActiveEmpty](/Results/ActiveEmpty.png)
-
-
-### Hypthesis testing
-
-We tested some hypotheses by cluster permutation testing: the EEG traces were compared to check for significant differences.
-Here an example:  
-
-![Permutation](/Results/C_Parietal.png)
 
   
 
@@ -131,7 +114,7 @@ palette = ['#1b1f22', '#970c0f', '#767a7f', '#f52b14']
 
 # Set conditions and stimuli variables
 stim = 'single'
-con = 'passive'
+con = 'active'
 mov = 'moving_yes'
 
 # Check if the condition is stationary
@@ -188,7 +171,7 @@ fig = mne.viz.plot_compare_evokeds(epochs_sub,
 fig[0].set_size_inches(10, 6)
 
 # Add a title to the figure
-fig[0].suptitle('Passive - Moving')
+fig[0].suptitle('Active - Moving')
 
 # Configure axes, labels, and grid
 axes = fig[0].axes
@@ -223,6 +206,26 @@ plt.savefig(path+'\\Plots\\Paper\\before and after unfold\\'+'Before_'+'-'.join(
   
   ```
 
+
+
+### EEG over the Scalp
+
+This is an example for the signals over the scalp. We grouped the EEG electrodes into 7 groups.
+
+![ActiveEEG](/Results/ActiveMoving.png)
+  
+  
+We also used control stimuli. They should show no systematic signal, which is the case:
+
+![ActiveEmpty](/Results/ActiveEmpty.png)
+
+
+### Hypthesis testing
+
+We tested some hypotheses by cluster permutation testing: the EEG traces were compared to check for significant differences.
+Here an example:  
+
+![Permutation](/Results/C_Parietal.png)
 
 
 ### Active vs Passive
