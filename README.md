@@ -123,60 +123,56 @@ Here an example:
   Example code for this figure:
 
   ```python
+    # Define y-axis limits for EEG data visualization
+ymin, ymax = -2.8, 3.4
+
+# Define a color palette for plotting
+palette = ['#1b1f22', '#970c0f', '#767a7f', '#f52b14']
+
+# Set conditions and stimuli variables
+stim = 'single'
+con = 'passive'
+mov = 'moving_yes'
+
+# Check if the condition is stationary
+if con == 'stationary':
+    # Filter epochs for the stationary condition including the specified stimulus
+    epochs_statio = {k: v for k, v in epochs.items() if (stim in k) & (con in k)}
     
-    ymin, ymax = -2.8, 3.4
-    palette = ['#1b1f22', '#970c0f', '#767a7f', '#f52b14']
+    # Initialize a new dictionary to store processed epochs
+    new_dict = {}
+    
+    # Process each key, value pair in the filtered epochs
+    for key, value in epochs_statio.items():
+        # Split the key by '/' to manipulate its components
+        components = key.split("/")
 
-    stim = 'single'
-    con = 'passive'
+        # Remove the 'moving' component from the key
+        components.remove(components[3])
 
-    mov = 'moving_yes'
+        # Rejoin components into a new key
+        new_key = "/".join(components)
 
-
-    if con == 'stationary':
+        # Combine evoked responses or add new entries to the dictionary
+        if new_key in new_dict:
+            new_dict[new_key].append(value)
+            new_dict[new_key] = mne.combine_evoked(new_dict[new_key], weights='nave')
+        else:
+            new_dict[new_key] = [value]
         
-        epochs_statio = {k: v for k, v in epochs.items() if (stim in k) & (con in k)}
-        
-        new_dict = {}
-        
-        for key, value in epochs_statio.items():
-            # Split the key into components.
-            components = key.split("/")
+        # Store the modified dictionary back into epochs_sub
+        epochs_sub = new_dict
+    
+else:
+    # Filter epochs for non-stationary conditions including the specified stimulus and movement
+    epochs_sub = {k: v for k, v in epochs.items() if (stim in k) & (mov in k) & (con in k)}
 
-            # Remove the 'moving_no' or 'moving_yes' component.
-            components.remove(components[3])
+# Define electrode picks for plotting
+picks = ['C5', 'C3', 'CP5', 'CP3']  # contra
+# picks = ['C6', 'C4', 'CP6', 'CP4']  # ipsi (uncomment for ipsilateral picks)
 
-            # Join the remaining components back into a key string.
-            new_key = "/".join(components)
-
-            # If the new key is already in the new dictionary, append the value to the list of values.
-            # Otherwise, start a new list of values.
-            if new_key in new_dict:
-                new_dict[new_key].append(value)
-                new_dict[new_key] = mne.combine_evoked(new_dict[new_key], weights='nave')
-            else:
-                new_dict[new_key] = [value]
-                
-            epochs_sub = new_dict
-        
-        # for key, value in new_dict.items():
-        #     epochs_sub = {}
-        #     epochs_sub[key] = mne.combine_evoked(new_dict[key], weights='nave')
-            
-    else:
-        epochs_sub = {k: v for k, v in epochs.items() if (stim in k) & (mov in k) & (con in k)}
-
-
-    # contra
-    picks = ['C5', 'C3', 'CP5', 'CP3']
-
-    # ipsi
-    # picks = ['C6', 'C4', 'CP6', 'CP4']
-    # palette = ['#767a7f', '#1b1f22', '#970c0f', '#f52b14']
-
-
-
-    fig = mne.viz.plot_compare_evokeds(epochs_sub,
+# Plot compare evokeds with customized options
+fig = mne.viz.plot_compare_evokeds(epochs_sub,
                                 picks=picks,
                                 combine='mean',
                                 colors={'attention_yes':'red', 'attention_no':'grey'},
@@ -188,63 +184,41 @@ Here an example:
                                 show_sensors='lower left',
                                 time_unit='ms')
 
-    fig[0].set_size_inches(10, 6)  # set new figure size
+# Set figure dimensions
+fig[0].set_size_inches(10, 6)
 
-    fig[0].suptitle('Passive - Moving')
-    # fig[0].tight_layout()
+# Add a title to the figure
+fig[0].suptitle('Passive - Moving')
 
-    axes = fig[0].axes
+# Configure axes, labels, and grid
+axes = fig[0].axes
+axes[0].yaxis.grid(True)
+axes[0].yaxis.set_ticks(np.arange(ymin, ymax, 0.2), minor=True)
+axes[0].set_ylabel('Amplitude [μV]')
+axes[0].xaxis.set_ticks(np.arange(0, 350, 10), minor=True)
+axes[0].xaxis.set_ticks(np.arange(-100, 350, 50), minor=False)
+axes[0].set_xlabel('Time [ms]')
+for spine in axes[0].spines.values():
+    spine.set_visible(True)
+axes[0].hlines(y=ymin, xmin=-100, xmax=350, colors='k')
+axes[0].vlines(x=0, ymin=ymin, ymax=ymax, colors='k')
 
-    axes[0].yaxis.grid(True)
-    axes[0].yaxis.set_ticks(np.arange(ymin, ymax, 0.2), minor=True);
-    axes[0].set_ylabel('Amplitude [μV]')
+# Display and adjust plot titles and legends
+picks_str = ', '.join(picks)
+axes[0].set_title(picks_str)
+a = axes[0]
+lines = a.get_lines()
+legend = a.get_legend()
+for i, (line, legend_text) in enumerate(zip(lines, legend.get_texts())):
+    line.set_color(palette[i])  # Change line color based on the palette
+    line.set_linewidth(2)
+    # Update legend
+    a.legend(lines, labels, loc='best')
 
-    axes[0].xaxis.set_ticks(np.arange(0, 350, 10), minor=True)
-    axes[0].xaxis.set_ticks(np.arange(-100, 350, 50), minor=False)
-    axes[0].set_xlabel('Time [ms]')
+# Save plots in SVG and PNG formats
+plt.savefig(path+'\\Plots\\Paper\\before and after unfold\\'+'Before_'+'-'.join(picks)+con+'_'+mov+'.svg', dpi=600, format='svg')
+plt.savefig(path+'\\Plots\\Paper\\before and after unfold\\'+'Before_'+'-'.join(picks)+con+'_'+mov+'.png', dpi=600, format='png')
 
-    for spine in axes[0].spines.values():
-        spine.set_visible(True)
-
-    axes[0].hlines(y=ymin,
-            xmin=-100,
-            xmax=350,
-            colors='k')
-
-    axes[0].vlines(x=0,
-                ymin=ymin,
-                ymax=ymax,
-            colors='k')
-
-    picks_str = ', '.join(picks)
-    axes[0].set_title(picks_str)
-
-
-
-    a = axes[0]
-    lines = a.get_lines()
-    legend = a.get_legend()
-    # legend.set_title()
-
-    for i, (line, legend_text) in enumerate(zip(lines, legend.get_texts())):
-        line.set_color(palette[i])  # Change line color
-        line.set_linewidth(2)
-        
-        # legend_text.set_text(hue_order[i])  # Change legend label
-        # Create a new legend
-        a.legend(lines, labels, loc='best')
-        
-    # Reorder the lines and labels
-    lines = [lines[i] for i in order]
-    # labels = [labels[i] for i in order]
-
-        # legend_text.set_text(hue_order[i])  # Change legend label
-    # Create a new legend
-    a.legend(lines, labels, loc='best', title=hue)
-
-
-    plt.savefig(path+'\\Plots\\Paper\\before and after unfold\\'+'Before_'+'-'.join(picks)+con+'_'+mov+'.svg', dpi=600, format='svg')
-    plt.savefig(path+'\\Plots\\Paper\\before and after unfold\\'+'Before_'+'-'.join(picks)+con+'_'+mov+'.png', dpi=600, format='png')
 
   
   ```
