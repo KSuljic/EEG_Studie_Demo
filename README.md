@@ -4,11 +4,12 @@
 ## Intro 
 
 Lets say you are being touched (a fly lands on your hand). You may not notice, but actually your brain processes this touch differently if you attend the touch or not.  
+  
 This is visible in electroencephalograms or also known as EEGs.  
 Even more: a) your brain processes touch differently if your hands are near or far away from each other and also b) differently if they are moving during the touch or not.  
 All visible in the EEG (pretty cool, right?).  
   
-Know we asked, is this also true for passively moved hands? Bonus: is this also true for continuously attended hands?  
+We asked: is this also true for passively moved hands? Bonus: is this also true for continuously attended hands?  
   
 TLDR; yes. We see differences between actively and passively moved hands. Also, suprisingly, coninously attended hands also show distance effects.  
  
