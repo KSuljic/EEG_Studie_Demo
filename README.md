@@ -1,7 +1,7 @@
 # EEG Study Demo
 
 
-Author: Kenan Suljić
+Author: Kenan Suljić  
 Date: 22.04.2024  
   
 Under supervision of: Prof. Tobias Heed  
@@ -13,15 +13,21 @@ Lets say you are being touched - a buttefly lands on your hand. You may not noti
 
   <img src="/Methods/butterfly.jpg" alt="butterfly" width="500" height="500">
 
-This is visible in electroencephalograms or also known as EEGs.  
+This is visible in electroencephalograms or also known as EEGs. 
+   
 Even more: a) your brain processes touch differently, if your hands are near or far away from each other and also b) if they are moving during the touch or not.  
+  
 All visible in the EEG (pretty cool, right?).  
   
-We asked: is this also true for passively moved hands? Bonus: is this also true for continuously attended hands?  
   
-  This was not done before, because EEG + movements is a very difficult thing to do. Normally, participants have to remain very still. We solved it via computational modelling.
+We asked: 
+- Is this also true for passively moved hands? 
+- Bonus: is this also true for continuously attended hands?  
+  
 
-
+This was not done before, because EEG + movements is a very difficult thing to do. Normally, participants have to remain very still. We solved it via computational modelling.
+  
+  
 **TLDR**; yes. We see differences between actively and passively moved hands in the EEG. Also, suprisingly, continously attended hands also show distance effects.  
  
 
