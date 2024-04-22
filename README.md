@@ -1,12 +1,20 @@
 # EEG Study Demo
 
 
+Author: Kenan Suljić
+Date: 22.04.2024  
+  
+Under supervision of: Prof. Tobias Heed  
+
+
 ## Intro 
 
-Lets say you are being touched (a fly lands on your hand). You may not notice, but actually your brain processes this touch differently if you attend the touch or not.  
+Lets say you are being touched - a buttefly lands on your hand. You may not notice, but actually your brain processes this touch differently, if you attend the touch or not.  
   
+![butterfly](/Methods/butterfly.jpg)
+
 This is visible in electroencephalograms or also known as EEGs.  
-Even more: a) your brain processes touch differently if your hands are near or far away from each other and also b) differently if they are moving during the touch or not.  
+Even more: a) your brain processes touch differently, if your hands are near or far away from each other and also b) if they are moving during the touch or not.  
 All visible in the EEG (pretty cool, right?).  
   
 We asked: is this also true for passively moved hands? Bonus: is this also true for continuously attended hands?  
@@ -28,6 +36,12 @@ Experimental Setup. We used the KINARM EndPoint Robot™  in combination with an
 Figure (CC BY-NC-SA) adapted from Wood et al. (2019) under the CC BY-NC 4.0 licence.
 
 ![Setup](/Methods/Setup.png)
+
+
+Figure (CC BY-NC-SA) showing the distances used in our experiment.
+
+![nearVSfar](/Methods/nearfar.png)
+
 
 
 ### EEG Recording Examples
