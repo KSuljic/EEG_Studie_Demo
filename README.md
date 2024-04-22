@@ -11,7 +11,7 @@ Under supervision of: Prof. Tobias Heed
 
 Lets say you are being touched - a buttefly lands on your hand. You may not notice, but actually your brain processes this touch differently, if you attend the touch or not.  
 
-  <img src="/Methods/butterfly.jpg" alt="butterfly" width="500" height="500">
+  <img src="/Methods/butterfly.jpg" alt="butterfly" height="500">
 
 This is visible in electroencephalograms or also known as EEGs. 
    
