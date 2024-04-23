@@ -1,5 +1,7 @@
 # EEG Study Demo
 
+Note: All figures under CC BY-NC-SA licence.
+
 
 Author: Kenan Suljić  
 Date: 22.04.2024  
