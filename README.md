@@ -1,10 +1,10 @@
 # EEG Study Demo
 
-Note: All figures under CC BY-NC-SA licence.
+Note: All rights reserved.
 
 
 Author: Kenan Suljić  
-Date: 22.04.2024  
+Date: 29.04.2024  
   
 Under supervision of: Prof. Tobias Heed  
 
@@ -53,12 +53,12 @@ Interestingly, no distance effects were found in passive conditions, indicating 
 
 Experimental Setup. We used the KINARM EndPoint Robot™  in combination with an EEG-system. A augmented reality display showed the experiment. An airsled accomplished frictionsless movements. Responses were made with a foot button.  
   
-Figure (Kenan Suljić under CC BY-NC-SA) adapted from Wood et al. (2019) under the CC BY-NC 4.0 licence.
+Figure adapted from Wood et al. (2019) under the CC BY-NC 4.0 licence.
 
 ![Setup](/Methods/Setup.png)
 
 
-Figure (Kenan Suljić under CC BY-NC-SA) showing the distances used in our experiment.
+Figure showing the distances used in our experiment.
 
 ![nearVSfar](/Methods/nearfar.png)
 
